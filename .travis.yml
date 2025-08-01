@@ -1,0 +1,9 @@
+sudo: required
+services:
+  - docker
+
+before_install:
+  - docker build -f Dockerfile.dev -t workflow-frontend .
+
+script:
+  - docker run workflow-frontend npm run test
